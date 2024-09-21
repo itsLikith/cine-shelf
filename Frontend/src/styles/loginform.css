@@ -1,0 +1,17 @@
+.form-container {
+    background-color: rgba(0, 0, 0, 0.825);
+    padding: 24px;
+}
+
+.form-container form {
+    background-color: transparent;
+    border: none;
+}
+
+.form-container * {
+    color: white;
+}
+
+.form-container a {
+    text-decoration: none;
+}

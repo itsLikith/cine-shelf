@@ -1,0 +1,18 @@
+.list-options {
+    grid-row: 2/3;
+    background-color: #242121;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.list-options > a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bolder;
+    color: white;
+    margin: 0px 16px;
+}
