@@ -1,16 +1,16 @@
+import { Link } from "react-router-dom";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "../styles/listOptions.css";
-import MoviesLink from "../pages/MoviesLink.jsx";
 
 function ListOptions(props) {
     return (
         <div className="container-fluid p-2 list-options">
-            <a href="" className={props.active}>Movies</a>
-            <a href="">Books</a>
-            <a href="">Magazines</a>
+            <Link to="/movies">Movies</Link>
+            <Link to="/books">Books</Link>
+            <Link to="/magazines">Magazines</Link>
         </div>
     );
 }
 
-export default ListOptions;
+export default ListOptions; 

@@ -1,7 +1,8 @@
-import MoviesPage from "./components/MoviesPage";
+import AppRoutes from "./routes/route";
+
 function App() {
     return(
-        <MoviesPage />
+        <AppRoutes />
     );
 }
 

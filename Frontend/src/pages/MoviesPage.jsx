@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import ListOptions from "./ListOptions";
-import ViewContent from "./ViewContent";
+import Header from "../components/Header";
+import ListOptions from "../components/ListOptions";
+import ViewContent from "../components/ViewContent";
 
 import "../styles/HomePage.css";
 
@@ -19,4 +19,3 @@ function MoviesPage() {
 }
 
 export default MoviesPage;
-
