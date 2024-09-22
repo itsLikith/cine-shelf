@@ -3,10 +3,10 @@ import "../../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "../styles/listOptions.css";
 import MoviesLink from "../pages/MoviesLink.jsx";
 
-function ListOptions() {
+function ListOptions(props) {
     return (
         <div className="container-fluid p-2 list-options">
-            <MoviesLink />
+            <a href="" className={props.active}>Movies</a>
             <a href="">Books</a>
             <a href="">Magazines</a>
         </div>

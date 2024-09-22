@@ -1,7 +1,7 @@
-import ListOptions from "./components/ListOptions";
+import MoviesPage from "./components/MoviesPage";
 function App() {
     return(
-        <ListOptions />
+        <MoviesPage />
     );
 }
 
