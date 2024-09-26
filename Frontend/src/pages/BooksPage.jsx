@@ -6,16 +6,16 @@ import ViewContent from "../components/ViewContent";
 import "../styles/HomePage.css";
 
 
-function MoviesPage() {
+function BooksPage() {
     return(
         <React.Fragment>
             <div className="grid-container">
                 <Header />
-                <ListOptions active="movies" />
+                <ListOptions active="books"/>
                 <ViewContent />
             </div>
         </React.Fragment>
     );
 }
 
-export default MoviesPage;
+export default BooksPage;

@@ -16,3 +16,7 @@
     color: white;
     margin: 0px 16px;
 }
+
+.active-link {
+    border-bottom: 2px solid white;
+}
