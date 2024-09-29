@@ -3,7 +3,9 @@ import "../styles/loginpage.css";
 
 function LoginPage() {
     return (
-        <LoginForm />
+        <div className="zeroPageContainer">
+            <LoginForm />
+        </div>
     );
 }
 

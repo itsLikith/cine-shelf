@@ -12,10 +12,10 @@ function MoviesPage() {
             <div className="grid-container">
                 <Header />
                 <ListOptions active="movies" />
-                <ViewContent />
+                <ViewContent view="movies" />
             </div>
         </React.Fragment>
     );
 }
 
-export default MoviesPage;
+export default MoviesPage; 

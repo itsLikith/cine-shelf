@@ -6,8 +6,8 @@ import { useState } from "react";
 function SignupForm() {
     const [email, setEmail] = useState("");
     const [otp, setOTP] = useState("");
-    const [emailVerified, setEmailVerified] = useState(true);
-    const [otpVerified, setOtpVerified] = useState(true);
+    const [emailVerified, setEmailVerified] = useState(false);
+    const [otpVerified, setOtpVerified] = useState(false);
 
     return (
         <div className="form-container">
