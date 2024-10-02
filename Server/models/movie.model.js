@@ -1,35 +1,24 @@
 import mongoose from 'mongoose';
+import { person } from './person.model';
 
 const movieSchema = new mongoose.Schema({
   movieName: {
     type: String,
     required: true,
   },
-  director: {
-    type: String,
-    required: true,
-  },
-  musicDirector: {
-    type: String,
-  },
+  director: person,
+  musicDirector: person,
   cast: {
-    actor: {
-      type: String,
-      required: true,
-    },
-    actress: {
-      type: String,
-    },
-    supportingActors: [String],
-    producer: {
-      type: String,
-    },
+    actor: person,
+    actress: person,
+    supportingActors: [person],
+    producer: person,
   },
   productionBanner: {
     type: String,
   },
   genre: [String],
-  moviePoster: {
+  moviePosterUrl: {
     type: String,
   },
   movieAssetLocation: {
@@ -61,12 +50,11 @@ const movieSchema = new mongoose.Schema({
   },
   rating: {
     type: Number,
-    default: 0,
+    default: 0
   },
   tags: [String],
-  availableResolutions: [String],
   awards: {
-    type: [String],
+    type: [String]
   },
   watched: {
     type: String,
@@ -76,4 +64,4 @@ const movieSchema = new mongoose.Schema({
 });
 
 const movie = mongoose.model('movies', movieSchema);
-export {movie};
+export { movie };

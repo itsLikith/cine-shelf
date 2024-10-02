@@ -2,15 +2,26 @@ import { Link } from "react-router-dom";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../styles/loginform.css";
 import { useState } from "react";
+import axios from "axios";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Email:", email);
         console.log("Password:", password);
+        const credentials = {
+            email: email,
+            password: password
+        };
+
+        try {
+            const response = await axios.post("http://cineshelf.in:3000/login", credentials)
+        } catch {
+
+        }
 
         // You can handle form submission logic here, such as sending data to the server.
         // For example, you can send a POST request using fetch or axios.

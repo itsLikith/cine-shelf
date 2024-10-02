@@ -6,7 +6,7 @@ const streamInfo = new mongoose.Schema({
     },
     recommended: {
         type: [Object]
-    }
+    },
 });
 
 const userSchema = new mongoose.Schema({
@@ -42,13 +42,8 @@ const userSchema = new mongoose.Schema({
             type: String,
             default: ""
         }
-    },
-    streamInfo: {
-        recentlyWatched: {
-            type: streamInfo
-        }
     }
 });
 
-const users = mongoose.model('users', userSchema);
-export default users;
+const Users = mongoose.model('Users', userSchema);
+export default Users;

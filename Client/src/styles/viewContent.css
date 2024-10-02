@@ -3,3 +3,45 @@
     background-color: #373737;
     overflow-y: scroll;
 }
+
+.card {
+    width: 180px;
+}
+
+.card-title {
+    margin: 0px 0px 14px 0px;
+}
+
+.card-img-top {
+    transition: filter 0.2s ease;
+}
+
+.card-img-overlay h4,
+.card-img-overlay p {
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    filter: brightness(25%);
+}
+
+.card:hover .card-img-overlay h4,
+.card:hover .card-img-overlay p {
+    display: block;
+    opacity: 1;
+}
+
+.card-text {
+    display: flex;
+    align-items: center;
+}
+
+.card-text svg {
+    margin-right: 7px;
+}
+
+.card-text {
+    font-size: small;
+    margin: 4px 0px;
+}
