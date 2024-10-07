@@ -1,6 +1,7 @@
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../styles/viewContent.css";
 import { movies } from "../movies";
+import { Link } from "react-router-dom";
 
 function ViewContent(props) {
   return (
@@ -8,7 +9,7 @@ function ViewContent(props) {
       {props.view === "movies" ? (
         movies.map((movie) => (
           <CreateCard
-            key={movie.movieName}
+            movieID={movie.movieID}
             movieName={movie.movieName}
             runtime={movie.runTime}
             genre={movie.genre}
@@ -25,7 +26,8 @@ function ViewContent(props) {
 
 function CreateCard(props) {
   return (
-    <div className="card m-5">
+    <Link to={`/watch/?movieID=${encodeURIComponent(props.movieID)}`} style={{textDecoration: "none"}}>
+      <div className="card m-3">
       <img
         className="card-img-top rounded"
         src={props.coverpic}
@@ -70,7 +72,7 @@ function CreateCard(props) {
           </svg>
           Runtime: {props.runtime}
         </p>
-        <p className="card-text text-info">
+        <p className="card-text text-info genre-text">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="17"
@@ -88,7 +90,7 @@ function CreateCard(props) {
           </svg>
           Genre: {props.genre}
         </p>
-        <p className="card-text text-light">
+        <p className="card-text rating-text">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="17"
@@ -106,7 +108,8 @@ function CreateCard(props) {
           Rating: {props.rating}
         </p>
       </div>
-    </div>
+      </div>
+    </Link>
   );
 }
 

@@ -18,9 +18,9 @@ function LoginForm() {
         };
 
         try {
-            const response = await axios.post("http://cineshelf.in:3000/login", credentials)
-        } catch {
-
+            const response = await axios.post("http://localhost:8080/login", credentials)
+        } catch (error) {
+            console.log(error);
         }
 
         // You can handle form submission logic here, such as sending data to the server.
@@ -41,6 +41,7 @@ function LoginForm() {
                         name="email"
                         onChange={(e) => setEmail(e.target.value)}
                         required
+                        autoComplete="true"
                     />
                     <label htmlFor="email">Email</label>
                 </div>
@@ -54,6 +55,7 @@ function LoginForm() {
                         name="password"
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        autoComplete="true"
                     />
                     <label htmlFor="password">Password</label>
                 </div>

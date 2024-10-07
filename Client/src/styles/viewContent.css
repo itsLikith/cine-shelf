@@ -1,11 +1,18 @@
 .view-content {
     grid-row: 3/4;
+    direction: ltr;
+    display: flex;
     background-color: #373737;
-    overflow-y: scroll;
+}
+
+.view-content::-webkit-scrollbar {
+    width: 0px;
+    height: auto;
 }
 
 .card {
     width: 180px;
+    height: fit-content;
 }
 
 .card-title {
@@ -44,4 +51,14 @@
 .card-text {
     font-size: small;
     margin: 4px 0px;
+}
+
+.genre-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rating-text {
+    color: #a3b18a;
 }
