@@ -1,23 +1,19 @@
 import { connectDB } from "../db/db.js";
+import randomNumber from "../constants/randomNumber.js";
 import bcrypt from "bcrypt";
+import user from "../models/user.model.js";
 
-connectDB();
-
-const authenticateUser = async (req,res) => {
-    const {username,password} = req.body;
-    try {
-        const user = await users.find({username: `${username}`});
-        console.log(user);
-        const StoredhashPassword = await user.password;
-        const isMatch = await bcrypt.compare(password,StoredhashPassword)
-        if (isMatch) {
-            console.log(`right credentials`);
-        } else {
-            console.error(`invalid credentials`);
+const registerUser = async (req,res) => {
+    const {email,pfp,password} = req.body;
+    const newUser = new user (
+        {
+            email : email,
+            pfp : pfp,
+            password : password
         }
-    } catch (error) {
-        console.error(error);
-    }
+    );
+    const regUser = await newUser.save();
+    res.json(regUser);
 }
 
-export { authenticateUser };
+export {registerUser};
