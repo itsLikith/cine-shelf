@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../styles/loginform.css";
 import { useState } from "react";
@@ -7,18 +7,22 @@ import axios from "axios";
 function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Email:", email);
-        console.log("Password:", password);
         const credentials = {
             email: email,
             password: password
         };
 
         try {
-            const response = await axios.post("http://localhost:8080/login", credentials)
+            const response = await axios.post("http://localhost:8080/login", credentials);
+            if(response.data.flag) console.log("invalid");
+            else {
+                console.log(response.data);
+                navigate("/movies");
+            }
         } catch (error) {
             console.log(error);
         }

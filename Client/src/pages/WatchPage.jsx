@@ -21,7 +21,7 @@ function WatchPage() {
       <div className="container-fluid bg-dark d-flex align-items-center text-light p-4">
           <Link to="/movies" className=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-step-back"><line x1="18" x2="18" y1="20" y2="4"/><polygon points="14,20 4,12 14,4"/></svg></Link>Movie Name
       </div>
-      <div className="container-fluid bg-dark"><video className="m-4 border-light rounded" src="./Pictures/Prasunethon.mp4" poster="./Pictures/demo.jpg" height="500" controls></video></div>
+      <div className="container-fluid bg-dark"><video className="m-4 border-light rounded bg-light" src="./Pictures/Prasunethon.mp4" poster="./Pictures/demo.jpg" height="500" controls></video></div>
       <div className="bg-dark text-light p-5 pt-2">
           <h2>Movie Name</h2>
           <p><a href="" className="btn btn-info m-2">Trailer</a><button className="btn btn-warning m-2" disabled>rating</button><button className="btn btn-danger m-2" disabled>Age</button></p>
