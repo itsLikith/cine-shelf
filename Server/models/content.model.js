@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 const movieSchema = new mongoose.Schema({
   movieID: {
     type: Number,
-    unique: true,
-    required: true
+    required: true,
+    unique: true
   },
   movieName: {
     type: String,
@@ -15,20 +15,25 @@ const movieSchema = new mongoose.Schema({
     required: true
   },
   musicDirector: {
-    type: String
+    type: String,
+    required: true
   },
   cast: {
-    type: Object,
     leadActor: {
-      type: String,
+      type: [String], // Array of strings for lead actors
       required: true
     },
     leadActress: {
-      type: String
+      type: [String], // Array of strings for lead actresses
+      required: true
+    },
+    supportingRoles: {
+      type: [String], // Array of strings for supporting roles
+      required: true
     }
   },
   genre: {
-    type: [String],
+    type: [String], // Array of genres
     required: true
   },
   description: {
@@ -44,8 +49,10 @@ const movieSchema = new mongoose.Schema({
     required: true
   },
   rating: {
-    type: String,
-    required: true
+    type: Number,
+    required: true,
+    min: 0,
+    max: 5
   },
   moviePoster: {
     type: String,
@@ -57,5 +64,17 @@ const movieSchema = new mongoose.Schema({
   }
 });
 
-const Cine = mongoose.model('Cine', movieSchema);
-export {Cine};
+const Cines = mongoose.model('Cines', movieSchema);
+
+
+const bookSchema = new mongoose.Schema({
+  bookID: {
+    type: Number,
+    unique: true,
+    required: true
+  }
+});
+
+const Shelfs = mongoose.model('Shelfs',bookSchema);
+
+export { Cines,Shelfs };
