@@ -1,4 +1,6 @@
-const randomNumber = () => {
+let randomNumber;
+
+randomNumber = () => {
     return Math.floor(Math.random() * 9000) + 1000;
 }
 

@@ -1,14 +1,24 @@
 import { Router } from "express";
-import { loginUser,registerUser,verifyMail } from "../controllers/user.authenticate.js";
-import { addMovie } from "../controllers/add.content.js";
-import { getMovie } from "../controllers/get.content.js";
+import { loginUser,registerUser,verifyMail,verifyOTP } from "../controllers/user.authenticate.js";
+import { addMovie,addBook } from "../controllers/add.content.js";
+import { getMovie,getBook } from "../controllers/get.content.js";
 
 const router = Router();
 
+// Login
 router.route('/login').post(loginUser);
-router.route('/register').post(registerUser);
+
+// Sign Up
 router.route('/verifyMail').post(verifyMail);
-router.route('/addMovie').post(addMovie)
+router.route('/verifyOTP').post(verifyOTP);
+router.route('/register').post(registerUser);
+
+// Admin Content
+router.route('/addMovie').post(addMovie);
+router.route('/addBook').post(addBook);
+
+// User Access Content
 router.route('/getMovie').post(getMovie);
+router.route('/getBook').post(getBook);
 
 export default router;

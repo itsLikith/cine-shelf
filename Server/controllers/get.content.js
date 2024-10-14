@@ -26,4 +26,4 @@ const getBook = async (req,res) => {
     }
 }
 
-export { getMovie };
+export { getMovie,getBook };
