@@ -7,28 +7,27 @@ import axios from "axios";
 function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const credentials = {
-            email: email,
-            password: password
+            email,
+            password
         };
-
         try {
             const response = await axios.post("http://localhost:8080/login", credentials);
-            if(response.data.flag) console.log("invalid");
-            else {
-                console.log(response.data);
-                navigate("/movies");
+            if(response.data.flag) {
+                setMessage(`${response.data.error}`);
+            }
+            if(response.data.isAuthenticated) {
+                setMessage("")
+                navigate('/movies');
             }
         } catch (error) {
             console.log(error);
         }
-
-        // You can handle form submission logic here, such as sending data to the server.
-        // For example, you can send a POST request using fetch or axios.
     };
 
     return (
@@ -68,6 +67,9 @@ function LoginForm() {
                     className="form-control w-100 btn p-2 btn-success mt-3 mb-3"
                     id="submitButton"
                 />
+                {
+                    (message) ? <p className="text-warning text-center">{message}</p> : null
+                }
                 <p className="text-center">
                     <a href="/forgotpwd" className="text-white"><b>Forgot password?</b></a>
                 </p>

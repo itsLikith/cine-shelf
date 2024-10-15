@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors";
 import bcrypt from "bcrypt";
-import {connectDB} from "./db/db.js";
-import router from "./routes/app.routes.js";
+import {connectDB} from "./src/db/db.js";
+import router from "./src/routes/app.routes.js";
 
 let forgotPasswordOTP;
 let signupPasswordOTP;

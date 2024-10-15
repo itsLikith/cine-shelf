@@ -8,18 +8,20 @@ let otpSent;
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(400).json({ error: "Email and password are required" });
+    return res.json({ error: "Email and password are required" });
   }
   try {
     const user = await CineShelfUsers.findOne({ email });
-    if (!user) {
-      return res.status(401).json({ error: "Invalid email or password", flag: 1 });
+    if(!user) {
+      return res.json({error: "Invalid Email", flag: true});
+    } else {
+      const isValid = await bcrypt.compare(password, user.password);
+      if(!isValid) {
+        return res.json({error: "Incorrect Password", flag: true});
+      } else {
+        return res.json({isAuthenticated: true});
+      }
     }
-    const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) {
-      return res.status(401).json({ error: "Invalid email or password", flag: 1 });
-    }
-    res.json(user);
   } catch (error) {
     console.error(error);
     res.status(500).send({ error: "Internal Server Error" });
@@ -50,8 +52,6 @@ const verifyMail = async (req, res) => {
 
 const verifyOTP = async (req,res) => {
   const {otp} = req.body;
-  console.log(`otp sent is: ${otpSent}`);
-  console.log(`received from frontend otp:${otp}`);
   if(!otp) {
     return res.status(400).json({ error: "OTP is required" });
   }
